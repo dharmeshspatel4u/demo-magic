@@ -103,8 +103,12 @@ function pe() {
   # print the command
   p "$@"
 
+  # Clean from \n and \ for multiline commands
+  c=${@//"\n"/}
+  c=${c//\\/}
+
   # execute the command
-  eval "$@"
+  eval "$c"
 }
 
 ##
